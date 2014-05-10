@@ -6,4 +6,12 @@ body {
 	background: url(bg.png) repeat-y;
 	background-color: #588a2b;
 	background-position: left;
+	margin:0;
+}
+
+.blockall {
+	width: 1292px;
+	background: url(bg1.png) no-repeat;
+	margin:0 auto;
+	border: 2px solid black;
 }

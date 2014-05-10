@@ -7,8 +7,8 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<header>
-      <div>
+<div class = "blockall">
+  <header>
         <div>
           <%= link_to "ДБ АО Сбербанк", '#', id: "logo" %>
           <nav>
@@ -21,11 +21,11 @@
             </ul>
           </nav>
         </div>
-      </div>
-    </header>
-    <div>
-      <%= yield %>
-      <p>© 2014 Народное творчество ОИБ ДБиЗИ</p>
-    </div>
+  </header>
+  <div>
+    <%= yield %>
+    <p>© 2014 Народное творчество ОИБ ДБиЗИ</p>
+  </div>
+</div>
 </body>
 </html>
