@@ -7,25 +7,30 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<div class = "blockall">
   <header>
-        <div>
-          <%= link_to "ДБ АО Сбербанк", '#', id: "logo" %>
-          <nav>
-            <ul>
-              <li><%= link_to "Главная", '/oib/home' %></li>
-              <li><%= link_to "Новости", '/oib/news' %></li>
-              <li><%= link_to "Структура", '/oib/structure' %></li>
-              <li><%= link_to "Скорая помощь", '/oib/help' %></li>
-              <li><%= link_to "Курилка", '/oib/room' %></li>
+    <div class = "blockall">
+        <div class = "menu">
+         <script type="text/javascript">
+          $(document).ready(function(){
+          $('div.menu li').each(function () {if (this.getElementsByTagName("a")[0].href == location.href) this.className = this.className + "selected";});
+          });
+        </script>
+          <!--<%= link_to "ДБ АО Сбербанк", '#', id: "logo" %> -->
+         <nav>
+            <ul id = "mainNav">
+              <li id = "main" class = "homenav"><%= link_to "Главная", '/oib/home' %></li>
+              <li id = "main" class = "newsnav"><%= link_to "Новости", '/oib/news' %></li>
+              <li id = "main" class = "stnav"><%= link_to "Структура", '/oib/structure' %></li>
+              <li id = "main" class = "helpnav"><%= link_to "Скорая помощь", '/oib/help' %></li>
+              <li id = "main" class = "roomnav"><%= link_to "Курилка", '/oib/room' %></li>
             </ul>
           </nav>
         </div>
+    </div>
   </header>
   <div>
     <%= yield %>
     <p>© 2014 Народное творчество ОИБ ДБиЗИ</p>
   </div>
-</div>
 </body>
 </html>
