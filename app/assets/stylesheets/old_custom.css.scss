@@ -11,6 +11,14 @@ body {
 	font-family: arial;
 }
 
+.blockall {
+	margin-top: 0px;
+	width: 100%;
+	height: 155px;
+	background: url(bg1.png) no-repeat center;
+	float:left;
+}
+
 .block1 {
 	margin-top: 0px;
 	width: 100%;
@@ -111,43 +119,3 @@ body {
 	background:url(navroom.png) no-repeat bottom;
 	width: 122px;
 }
-
-.layout { 
-	overflow: hidden; 
-}
-   
-.col1 { 
-	width: 50%; 
-	float: left; 
-}
-   
-.col1 .wrap { 
-    background: url(bgleft.png) no-repeat top right;
-    height: 285px;
-    margin-right: 515px; /* Сдвигаем влево на половину ширины колонки 2 */
-    padding: 10px; /* Поля вокруг текста */ 
-}
-
-.col2 { 
-   	background: #E0D2C7; 
-   	width: 1030px; 
-   	float: left; 
-   	margin-left: -515px; 
-}
-   
-.col3 { 
-	width: 50%; 
-	float: right; 
-	margin-left: -515px; 
-}
-
-.col3 .wrap { 
-    background: url(bgright.png) no-repeat top left; 
-    height: 285px;
-    margin-left: 515px; /* Сдвигаем вправо на половину ширины колонки 2 */ 
-    padding: 10px; 
-}
-
-.header { 
- 	background: url(bg1.png) no-repeat center;
- }

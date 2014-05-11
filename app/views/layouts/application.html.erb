@@ -8,7 +8,7 @@
 </head>
 <body>
   <header>
-    <div class = "blockall">
+    <div class = "header">
         <div class = "menu">
          <script type="text/javascript">
           $(document).ready(function(){
@@ -28,9 +28,13 @@
         </div>
     </div>
   </header>
-  <div class = "block1">
-    <%= yield %>
-    <p>© 2014 Народное творчество ОИБ ДБиЗИ</p>
+
+  <div class="layout">
+   <div class="col1"><div class="wrap"></div></div>
+   <div class="col3"><div class="wrap"></div></div>
+   <div class="col2"><%= yield %></div>
   </div>
+
+    <p>© 2014 Народное творчество ОИБ ДБиЗИ</p>
 </body>
 </html>
