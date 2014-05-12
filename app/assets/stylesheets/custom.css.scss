@@ -5,8 +5,9 @@
 body {
 	padding:0;
 	margin:0;
-	background-color: #32590f;
-	background-color: linear-gradient(to right, #32590f, #5e932e);
+	background: url(bg.png) repeat-y;
+	background-color: #588a2b;
+	background-position: left;
 	font-family: arial;
 }
 
@@ -123,3 +124,9 @@ body {
 .header { 
  	background: url(bg1.png) no-repeat center;
  }
+
+h1 {
+	color: #615e5e;
+	font-size: 18px;
+	font-weight: normal;
+}
