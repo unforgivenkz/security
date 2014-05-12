@@ -5,37 +5,9 @@
 body {
 	padding:0;
 	margin:0;
-	background: url(bg.png) repeat-y;
-	background-color: #588a2b;
-	background-position: left;
+	background-color: #32590f;
+	background-color: linear-gradient(to right, #32590f, #5e932e);
 	font-family: arial;
-}
-
-.block1 {
-	margin-top: 0px;
-	width: 100%;
-	background: #fff;
-	float:left;
-}
-
-.block2 {
-	margin: 0 100px 0 100px;
-	width: 1000px;
-	background: #555;
-}
-
-.blockleft {
-	width: 100px;
-	height: 155px;
-	background: #222;
-	float:left;
-}
-
-.blockright {
-	width: 100px;
-	height: 155px;
-	background: #222;
-	float:right;
 }
 
 .menu {
@@ -129,7 +101,7 @@ body {
 }
 
 .col2 { 
-   	background: #E0D2C7; 
+   	background: #f2f2f2; 
    	width: 1030px; 
    	float: left; 
    	margin-left: -515px; 
