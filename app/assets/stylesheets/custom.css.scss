@@ -87,6 +87,7 @@ body {
 
 .layout { 
 	overflow: hidden; 
+	min-width:1030px;
 }
    
 .col1 { 
@@ -105,7 +106,7 @@ body {
    	background: #f2f2f2; 
    	width: 1030px; 
    	float: left; 
-   	margin-left: -515px; 
+   	margin-left: -515px;
 }
    
 .col3 { 
