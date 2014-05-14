@@ -99,27 +99,25 @@ body {
     background: url(bgleft.png) no-repeat top right;
     height: 285px;
     margin-right: 515px; /* Сдвигаем влево на половину ширины колонки 2 */
-    padding: 10px; /* Поля вокруг текста */ 
 }
 
 .col2 { 
    	background: #f2f2f2; 
    	width: 1030px; 
    	float: left; 
-   	margin-left: -515px;
+   	margin-left: -516px;
 }
    
 .col3 { 
 	width: 50%; 
 	float: right; 
-	margin-left: -515px; 
+	margin-left: -515px;
 }
 
 .col3 .wrap { 
     background: url(bgright.png) no-repeat top left; 
     height: 285px;
     margin-left: 515px; /* Сдвигаем вправо на половину ширины колонки 2 */ 
-    padding: 10px; 
 }
 
 .header { 
@@ -130,4 +128,10 @@ h1 {
 	color: #615e5e;
 	font-size: 18px;
 	font-weight: normal;
+}
+
+.bottom {
+	color: #ffffff;
+	font-size: 14px;
+	margin-right: 515px;
 }
