@@ -32,7 +32,13 @@
   <div class="layout">
    <div class="col1"><div class="wrap"></div></div>
    <div class="col3"><div class="wrap"></div></div>
-   <div class="col2"><%= yield %></div>
+   <div class="col2">
+     <div class ="bordertop"></div>
+     <div class = "content">
+     <%= yield %>
+     </div>
+     <div class ="borderbottom"></div>
+   </div>
   </div>
   <div class = "bottom">
     <p>© 2014 Народное творчество ОИБ ДБиЗИ</p>
