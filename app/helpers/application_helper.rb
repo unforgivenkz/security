@@ -18,4 +18,8 @@ module ApplicationHelper
     end
   end
 
+    def img_title(img)
+      "#{img}"
+    end
+
 end

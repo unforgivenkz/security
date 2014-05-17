@@ -128,6 +128,7 @@ h1 {
 	color: #615e5e;
 	font-size: 18px;
 	font-weight: normal;
+	margin-top: 45px;
 }
 
 .bottom {
@@ -155,5 +156,13 @@ h1 {
 	background: url(borderleft.png) repeat-y, 
                 url(borderright.png) 100% 0 repeat-y;
 	height: 100%; 
-	padding: 40px;
+	padding-top: 15px;
+	padding-left: 40px;
+	padding-right: 40px;
+	padding-bottom: 40px;
+}
+
+.content img {
+	float:left;
+    margin: 0px 10px 0px 0px;
 }
