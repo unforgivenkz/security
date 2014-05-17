@@ -8,4 +8,14 @@ module ApplicationHelper
       "#{base_title} | #{page_title}"
     end
   end
+
+  def full_h1title(h1_title)
+    base_title = "Добро пожаловать на страницу портала ДБиЗИ!"
+    if h1_title.empty?
+      base_title
+    else
+      "#{h1_title}"
+    end
+  end
+
 end
