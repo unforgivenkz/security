@@ -1,9 +1,15 @@
 Security::Application.routes.draw do
-  get "oib/home"
-  get "oib/news"
-  get "oib/structure"
-  get "oib/help"
-  get "oib/room"
+  root 'oib#home'
+  match '/home', to: 'oib#home', via: 'get'
+  match '/news', to: 'oib#news', via: 'get'
+  match '/structure', to: 'oib#structure', via: 'get'
+  match '/help', to: 'oib#help', via: 'get'
+  match '/room', to: 'oib#room', via: 'get'
+  #get "oib/home"
+  #get "oib/news"
+  #get "oib/structure"
+  #get "oib/help"
+  #get "oib/room"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

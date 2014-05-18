@@ -1,0 +1,21 @@
+<header>
+    <div class = "header">
+      <div class = "logo"><%= link_to "Sberbank", 'http://www.sberbank.kz', id: "logo" %></div>
+        <div class = "menu">
+         <script type="text/javascript">
+          $(document).ready(function(){
+          $('div.menu li').each(function () {if (this.getElementsByTagName("a")[0].href == location.href) this.className = this.className + "selected";});
+          });
+        </script>
+         <nav>
+            <ul id = "mainNav">
+              <li id = "main" class = "homenav"><%= link_to "Главная", home_path %></li>
+              <li id = "main" class = "newsnav"><%= link_to "Новости", news_path %></li>
+              <li id = "main" class = "stnav"><%= link_to "Структура", structure_path %></li>
+              <li id = "main" class = "helpnav"><%= link_to "Скорая помощь", help_path %></li>
+              <li id = "main" class = "roomnav"><%= link_to "Курилка", room_path %></li>
+            </ul>
+          </nav>
+        </div>
+    </div>
+  </header>
