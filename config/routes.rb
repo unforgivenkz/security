@@ -1,5 +1,7 @@
 Security::Application.routes.draw do
+  resources :users
   root 'oib#home'
+  match '/signup',  to: 'users#new', via: 'get'
   match '/home', to: 'oib#home', via: 'get'
   match '/news', to: 'oib#news', via: 'get'
   match '/structure', to: 'oib#structure', via: 'get'
