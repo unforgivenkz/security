@@ -214,7 +214,12 @@ h2 {
   		height: 25px;
   		margin-bottom: 15px;
   		font-size: 14px;
+
 	}
+
+	input:focus {
+  		background: #f6fced;
+  	}
 
 	input[type="submit"] {
 		border: none;
@@ -224,6 +229,7 @@ h2 {
 		color: #f2f2f2;
 		background: url(button.jpg) no-repeat; 
 		cursor: pointer;
+		margin-top: 10px;
 	}
 
 	form {
