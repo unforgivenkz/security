@@ -14,7 +14,7 @@ class UsersController < ApplicationController
   	@user.resolv = Resolv.getname(request.remote_ip)
   	if @user.save
       UserMailer.welcome_email(@user).deliver
-  		redirect_to @user
+      redirect_to @user
   	else
   		render 'new'
   	end
