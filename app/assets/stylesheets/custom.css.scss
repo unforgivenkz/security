@@ -161,6 +161,7 @@ h1 {
 	font-size: 18px;
 	font-weight: normal;
 	margin-top: 45px;
+	line-height: 25px;
 }
 
 h2 {
@@ -228,6 +229,7 @@ h2 {
 		background: url(button.jpg) no-repeat; 
 		cursor: pointer;
 		margin-top: 10px;
+		margin-bottom: 20px;
 	}
 
 	form {
@@ -249,3 +251,13 @@ h2 {
   @extend .error;
 }
 
+ .sign {
+  	float: right;
+  	margin-right: 83px;
+  	margin-top: 20px;
+  	a {
+  		display: block;
+  		height: 55px;
+  		width: 300px;
+  	}
+ }

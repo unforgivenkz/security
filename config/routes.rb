@@ -1,7 +1,10 @@
 Security::Application.routes.draw do
   resources :users
+  resources :sessions, only: [:new, :create, :destroy]
   root 'oib#home'
   match '/signup',  to: 'users#new', via: 'get'
+  match '/signin',  to: 'sessions#new', via: 'get'
+  match '/signout', to: 'sessions#destroy', via: 'delete'
   match '/home', to: 'oib#home', via: 'get'
   match '/news', to: 'oib#news', via: 'get'
   match '/structure', to: 'oib#structure', via: 'get'

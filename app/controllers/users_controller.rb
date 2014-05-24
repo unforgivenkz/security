@@ -12,10 +12,11 @@ class UsersController < ApplicationController
   	@user = User.new (user_params)
   	@user.ip_address = request.remote_ip
   	@user.resolv = Resolv.getname(request.remote_ip)
+    @user.sign_token = Digest::SHA1.hexdigest([Time.now, rand].join)
   	if @user.save
-      UserMailer.welcome_email(@user).deliver
+      UserMailer.welcome_email(@user, "http://0.0.0.0:3000/#{@user.sign_token}").deliver
       flash[:success] = "Вы успешно прошли процедуру регистрации на портале ДБиЗИ!"
-      redirect_to @user
+      redirect_to '/home'
   	else
   		render 'new'
   	end

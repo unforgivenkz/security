@@ -1,6 +1,11 @@
 <header>
     <div class = "header">
       <div class = "logo"><%= link_to "Sberbank", 'http://www.sberbank.kz', id: "logo" %></div>
+      <% if signed_in? %>
+        <div class = "sign"><%= link_to "Выход", signout_path, method: "delete" %></div>
+      <% else %>
+        <div class = "sign"><%= link_to "Вход", signin_path %></div>
+      <%end %>
         <div class = "menu">
          <script type="text/javascript">
           $(document).ready(function(){
