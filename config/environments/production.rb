@@ -80,5 +80,19 @@ Security::Application.configure do
 
   config.action_mailer.sendmail_settings = { :arguments => "-i" }
 
-
+config.action_mailer.delivery_method = :smtp#sendmail#
+# change to true to allow email to be sent during development
+config.action_mailer.perform_deliveries = true
+config.action_mailer.raise_delivery_errors = true
+config.action_mailer.default :charset => "utf-8"
+config.action_mailer.default_options = {from: 'no-reply@example.com'}
+config.action_mailer.smtp_settings = {
+  address: "smtp.gmail.com",
+  port: 587,
+  #domain: "example.com",
+  authentication: "plain",
+  enable_starttls_auto: true,
+  user_name: "vikys.sin",
+  password: "ROST#13root5"
+}
 end
