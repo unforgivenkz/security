@@ -78,7 +78,7 @@ Security::Application.configure do
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
 
-  config.action_mailer.sendmail_settings = { :arguments => "-i" }
+  #config.action_mailer.sendmail_settings = { :arguments => "-i" }
 
 config.action_mailer.delivery_method = :smtp#sendmail#
 # change to true to allow email to be sent during development
