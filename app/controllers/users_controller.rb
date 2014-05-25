@@ -2,6 +2,15 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    url = URI.parse(request.original_url)
+    if !@user.active
+      @tok = CGI.parse(url.query)['token'].first
+    end
+    if @tok == @user.sign_token
+      @user.update_attribute(:active, true)
+      flash[:success] = "Процедура регистрации завершена."
+      redirect_to '/home'
+    end
   end
 
   def new
@@ -13,9 +22,10 @@ class UsersController < ApplicationController
   	@user.ip_address = request.remote_ip
   	@user.resolv = Resolv.getname(request.remote_ip)
     @user.sign_token = Digest::SHA1.hexdigest([Time.now, rand].join)
+    @user.active = false
   	if @user.save
-      UserMailer.welcome_email(@user, "http://0.0.0.0:3000/#{@user.sign_token}").deliver
-      flash[:success] = "Вы успешно прошли процедуру регистрации на портале ДБиЗИ!"
+      UserMailer.welcome_email(@user, request.original_url+"/#{@user.id}?token=#{@user.sign_token}").deliver
+      flash[:success] = "#{@user.name}, на Ваш почтовый адрес направлено письмо для подтверждения регистрации"
       redirect_to '/home'
   	else
   		render 'new'

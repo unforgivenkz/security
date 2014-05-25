@@ -10,5 +10,4 @@ def login()
 	end
 "#{base_login}"
 end
-
 end
