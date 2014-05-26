@@ -2,3 +2,8 @@
 <% provide(:img, "room.jpg") %>
 <% provide(:h1, 'Поговорим о наболевшем...') %>
 <p>Лента</p>
+<% if signed_in? %>
+<%= @current_user.name %>
+<% else %>
+Гость
+<% end %>
