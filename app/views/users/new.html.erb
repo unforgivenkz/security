@@ -17,6 +17,8 @@
       <%= f.label :password_confirmation, "Подтверждение пароля" %>
       <%= f.password_field :password_confirmation %>
 
+      <%= show_simple_captcha %>
+
       <%= f.submit "Создать мой аккаунт" %>
     <% end %>
   </div>
