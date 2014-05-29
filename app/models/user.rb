@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
 	validates :email, presence: true, uniqueness: {case_sensitive: false }#, format: { with: VALID_EMAIL_REGEX }
 	has_secure_password
 	validates :password, length: { minimum: 8 }, format: { with: VALID_PASSWORD_REGEX }
+	apply_simple_captcha
 
 	def User.new_remember_token
     	SecureRandom.urlsafe_base64

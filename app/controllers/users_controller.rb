@@ -20,16 +20,21 @@ class UsersController < ApplicationController
   def create
   	@user = User.new (user_params)
   	@user.ip_address = request.remote_ip
-  	@user.resolv = Resolv.getname(request.remote_ip)
+ 	  @user.resolv = Resolv.getname(request.remote_ip)
     @user.sign_token = Digest::SHA1.hexdigest([Time.now, rand].join)
     @user.active = false
-  	if @user.save
-      UserMailer.welcome_email(@user, request.original_url+"/#{@user.id}?token=#{@user.sign_token}").deliver
-      flash[:success] = "#{@user.name}, на Ваш почтовый адрес направлено письмо для подтверждения регистрации"
-      redirect_to '/home'
-  	else
-  		render 'new'
-  	end
+      if !simple_captcha_valid?
+        flash[:error] = "Введен неверный код!"
+        redirect_to '/signup'
+      else
+        if @user.save
+          UserMailer.welcome_email(@user, request.original_url+"/#{@user.id}?token=#{@user.sign_token}").deliver
+          flash[:success] = "#{@user.name}, на Ваш почтовый адрес направлено письмо для подтверждения регистрации"
+          redirect_to '/home'
+  	   else
+  		    render 'new'
+  	   end
+      end
   end
 
   private
@@ -39,3 +44,7 @@ class UsersController < ApplicationController
   end
 
 end
+
+
+
+          
