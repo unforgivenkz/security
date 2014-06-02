@@ -197,7 +197,6 @@ h2 {
 .content {
 	background: url(borderleft.png) repeat-y, 
                 url(borderright.png) 100% 0 repeat-y;
-	height: 100%; 
 	padding-top: 15px;
 	padding-left: 40px;
 	padding-right: 40px;
@@ -208,7 +207,7 @@ h2 {
 	}	
 }
 
-.signup {
+.signup { 
 	label {
 		font-size: 14px;
 	}

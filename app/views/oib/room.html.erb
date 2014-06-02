@@ -1,9 +1,16 @@
 <% provide(:title, 'Курилка') %>
 <p><% provide(:img, "room.jpg") %>
 <% provide(:h1, 'Поговорим о наболевшем...') %></p>
-<p>Лента</p>
-<% if signed_in? %>
-<%= @current_user.name %>
-<% else %>
-Гость
-<% end %>
+	<div class = "lenta">
+		<h4>Лента</h4>
+	</div>
+	<div class = "userroom">
+		<% if signed_in? %>
+			<%= image_tag(img_title("personal.png")) %>
+			<h3><%= @current_user.name %></h3>
+		<% else %>
+			<%= image_tag(img_title("personal.png")) %>
+			<h3>Гость</h3>
+			<p class = "warning">Опубликовать вопрос может только зарегистрированный пользователь!</p>
+		<% end %>
+	</div>

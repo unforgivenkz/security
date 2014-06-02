@@ -1,6 +1,7 @@
 <% provide(:title, "Регистрация") %>
-<% provide(:h1, "Регистрация") %>
+<% provide(:h1, "Регистрация (все поля обязательны для заполнения)") %>
 <% provide(:img, "reg.jpg") %>
+
  <div class = "signup">
     <%= form_for(@user) do |f| %>
     <%= render 'shared/error_messages' %>
