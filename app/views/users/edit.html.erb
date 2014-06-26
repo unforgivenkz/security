@@ -1,0 +1,23 @@
+<% provide(:title, "Редактировать профиль") %>
+<% provide(:h1, "Редактировать профиль") %>
+<% provide(:img, "reg.jpg") %>
+
+ <div class = "signup">
+    <%= form_for(@user) do |f| %>
+      <%= render 'shared/error_messages' %>
+
+      <%= f.label :name, "Имя" %>
+      <%= f.text_field :name %>
+
+      <%= f.label :email %>
+      <%= f.text_field :email %>
+
+      <%= f.label :password, "Пароль" %>
+      <%= f.password_field :password %>
+
+      <%= f.label :password_confirmation, "Подтверждение пароля" %>
+      <%= f.password_field :password_confirmation %>
+
+      <%= f.submit "Сохранить", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
