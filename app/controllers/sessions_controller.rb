@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
   if user && user.authenticate(params[:session][:password])
     if user.active
       sign_in user
-      redirect_to '/room'
+      redirect_back_or '/room'
     else
       flash.now[:error] = 'Необходимо подтверждение регистрации'
       render 'new'

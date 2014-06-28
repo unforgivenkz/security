@@ -8,8 +8,8 @@
 		<% if signed_in? %>
 			<%= image_tag(img_title("personal.png")) %>
 			<h3><%= @current_user.name %></h3>
-			<%= link_to "Profile", current_user %>
-			<%= link_to "Settings", edit_user_path(current_user) %>
+			<!--<%= link_to "Profile", current_user %>-->
+			<%= link_to "Изменить профиль", edit_user_path(current_user) %>
 		<% else %>
 			<%= image_tag(img_title("personal.png")) %>
 			<h3>Гость</h3>
