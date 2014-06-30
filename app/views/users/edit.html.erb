@@ -6,10 +6,15 @@
     <%= form_for(@user) do |f| %>
       <%= render 'shared/error_messages' %>
 
+      <% if current_user.admin? && !current_user?(@user) %>
+        <%= f.label :name, "Имя" %>
+        <%= f.text_field :name , disabled:true%> 
 
+        <%= f.label :email %>
+        <%= f.text_field :email , disabled:true%>
 
         <p> <%= f.check_box :admin  %> Администратор? </p>
-
+      <% else %>
         <%= f.label :name, "Имя" %>
         <%= f.text_field :name %> 
 
@@ -21,7 +26,7 @@
 
         <%= f.label :password_confirmation, "Подтверждение пароля" %>
         <%= f.password_field :password_confirmation %>
-
+      <% end %>
 
       <%= f.submit "Сохранить", class: "btn btn-large btn-primary" %>
     <% end %>
