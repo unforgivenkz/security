@@ -1,5 +1,6 @@
     <li>
-      <%= image_tag(img_title("personal.png")) %>
+      <%= image_tag(user.avatar_url) if user.avatar? %>
+      <%= image_tag(img_title("personal.png")) if !user.avatar?%>
      <% if current_user.admin? && !current_user?(@user) %>
         <%= link_to user.name, edit_user_path(user) %>
       <% else %>

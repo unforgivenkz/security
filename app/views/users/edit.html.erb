@@ -28,6 +28,10 @@
         <%= f.password_field :password_confirmation %>
       <% end %>
 
+      <%= image_tag(@user.avatar_url) if @user.avatar? %> <!--загруженая картинка, если присутствует-->
+      <%= f.file_field :avatar%>
+      <%= f.hidden_field :avatar_cache %> <!--кешированое изображение-->
+
       <%= f.submit "Сохранить", class: "btn btn-large btn-primary" %>
     <% end %>
   </div>

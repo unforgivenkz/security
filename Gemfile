@@ -9,6 +9,8 @@ gem 'sendmail', '~> 0.0.1'
 gem 'simple_captcha2', require: 'simple_captcha'
 gem 'will_paginate', '3.0.4'
 gem 'bootstrap-will_paginate', '0.0.9'
+gem 'carrierwave', '~> 0.10.0'
+gem 'mini_magick', '~> 3.7.0'
 
 group :development, :test do
   gem 'sqlite3', '1.3.8'

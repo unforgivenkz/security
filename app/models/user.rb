@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
 	has_secure_password
 	validates :password, length: { minimum: 8 }, format: { with: VALID_PASSWORD_REGEX }, :presence => true, :confirmation => true, :if => lambda{ new_record? || !password.nil? }
 	apply_simple_captcha
+	mount_uploader :avatar, AvatarUploader
 
 	def User.new_remember_token
     	SecureRandom.urlsafe_base64
