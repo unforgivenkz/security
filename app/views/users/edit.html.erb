@@ -10,13 +10,11 @@
         <%= f.label :name, "Имя" %>
         <%= f.text_field :name , disabled:true%> 
 
-        <%= f.label :email %>
-        <%= f.text_field :email , disabled:true%>
-
         <p> <%= f.check_box :admin  %> Администратор? </p>
       <% else %>
         <%= f.label :name, "Имя" %>
         <%= f.text_field :name %> 
+      <% end %>  
 
         <%= f.label :email %>
         <%= f.text_field :email , disabled:true%>
@@ -26,10 +24,10 @@
 
         <%= f.label :password_confirmation, "Подтверждение пароля" %>
         <%= f.password_field :password_confirmation %>
-      <% end %>
-
+      
+      <%= f.label  "Аватар" %>
       <%= image_tag(@user.avatar_url) if @user.avatar? %> <!--загруженая картинка, если присутствует-->
-      <%= f.file_field :avatar%>
+      <%= f.file_field :avatar %>
       <%= f.hidden_field :avatar_cache %> <!--кешированое изображение-->
 
       <%= f.submit "Сохранить", class: "btn btn-large btn-primary" %>

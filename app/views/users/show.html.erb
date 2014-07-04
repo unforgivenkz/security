@@ -1,3 +1,4 @@
 <% provide(:title, @user.name) %>
-<% provide(:img, "personal.png") %>
+<% provide(:img, @user.avatar_url) if @user.avatar? %>
+<% provide(:img, "personal.png") if !@user.avatar? %>
 <% provide(:h1, @user.name) %>
