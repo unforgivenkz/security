@@ -10,8 +10,10 @@
 			<%= image_tag(img_title("personal.png")) if !@current_user.avatar?%>
 			<h3><%= @current_user.name %></h3>
 			<!--<%= link_to "Profile", current_user %>-->
-			<%= link_to "Изменить профиль", edit_user_path(current_user) %><br>
-			<%= link_to "Все пользователи", users_path %>
+			<%= link_to "Мой профиль", edit_user_path(current_user) %>
+			<% if @current_user.admin? %>
+				| <%= link_to "Пользователи", users_path %>
+			<% end %>	
 		<% else %>
 			<%= image_tag(img_title("personal.png")) %>
 			<h3>Гость</h3>

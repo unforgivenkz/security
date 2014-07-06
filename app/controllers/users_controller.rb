@@ -48,12 +48,22 @@ class UsersController < ApplicationController
   end
 
   def update
-    if @user.update_attributes(user_params)
-      flash[:success] = "Профиль успешно изменен."
+    @user.ip_address = request.remote_ip
+    @user.resolv = Resolv.getname(request.remote_ip)
+
+    if current_user.admin? && !current_user?(@user)
+      @up_param = admin_params_update
+    else
+      @up_param = user_params_update
+    end  
+
+    if @user.update_attributes(@up_param)
+      flash[:success] = "Профиль пользователя #{@user.name} успешно изменен."
       redirect_to '/room'
     else  
       render 'edit'
     end
+
   end
 
   def destroy
@@ -65,7 +75,15 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :email, :password, :password_confirmation, :admin, :avatar)
+    params.require(:user).permit(:name, :email, :password, :password_confirmation, :avatar)
+  end
+
+  def user_params_update
+    params.require(:user).permit(:name, :password, :password_confirmation, :avatar)
+  end
+
+  def admin_params_update
+    params.require(:user).permit(:password, :password_confirmation, :admin)
   end
 
 

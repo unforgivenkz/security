@@ -228,7 +228,7 @@ h2 {
 		color: #f2f2f2;
 		background: url(button.jpg) no-repeat; 
 		cursor: pointer;
-		margin-top: 10px;
+		margin-top: 20px;
 		margin-bottom: 20px;
 	}
 
@@ -274,9 +274,5 @@ h2 {
     &:last-child {
       border-bottom: 1px solid $grayLighter;
     }
-   img{
-     width: 50px;
-     height: 50px;
-   }
   }
 }

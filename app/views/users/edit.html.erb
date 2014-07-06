@@ -25,10 +25,13 @@
         <%= f.label :password_confirmation, "Подтверждение пароля" %>
         <%= f.password_field :password_confirmation %>
       
+      <% if current_user?(@user) %>    
       <%= f.label  "Аватар" %>
       <%= image_tag(@user.avatar_url) if @user.avatar? %> <!--загруженая картинка, если присутствует-->
+      <%= image_tag(img_title("personal.png")) if !@user.avatar?%>
       <%= f.file_field :avatar %>
       <%= f.hidden_field :avatar_cache %> <!--кешированое изображение-->
+      <% end %>
 
       <%= f.submit "Сохранить", class: "btn btn-large btn-primary" %>
     <% end %>

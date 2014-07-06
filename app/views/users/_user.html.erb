@@ -1,6 +1,6 @@
     <li>
-      <%= image_tag(user.avatar_url) if user.avatar? %>
-      <%= image_tag(img_title("personal.png")) if !user.avatar?%>
+      <%= image_tag(user.avatar.thumb.url) if user.avatar? %>
+      <%= image_tag(img_title("personalmini.png")) if !user.avatar?%>
 
      <% if current_user.admin? || current_user?(user) %>
         <%= link_to user.name, edit_user_path(user) %>
@@ -9,7 +9,7 @@
       <% end %>
 
 
-       <% if user.admin? %>
+       <% if user.admin? && current_user.admin? %>
       <sup>A</sup>
        <% end %>
 
