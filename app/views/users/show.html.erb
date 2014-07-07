@@ -2,3 +2,11 @@
 <% provide(:img, @user.avatar_url) if @user.avatar? %>
 <% provide(:img, "personal.png") if !@user.avatar? %>
 <% provide(:h1, @user.name) %>
+
+    <% if @user.microposts.any? %>
+      <h3>Вопросы (<%= @user.microposts.count %>)</h3>
+      <ol>
+        <%= render @microposts %>
+      </ol>
+      <%= will_paginate @microposts %>
+    <% end %>
