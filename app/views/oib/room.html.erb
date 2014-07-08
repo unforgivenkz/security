@@ -5,13 +5,7 @@
 		<h4>Лента</h4>
 		<% if signed_in? %>
 
-		<% if @current_user.microposts.any? %>
-      				<h3>Вопросы (<%= @current_user.microposts.count %>)</h3>
-      				<ol>
-        				<%= render @microposts %>
-      				</ol>
-      					<%= will_paginate @microposts %>
-    			<% end %>
+# вывод сообщений
 
 		<% end %>
 	</div>
@@ -25,6 +19,13 @@
 			<% if @current_user.admin? %>
 				| <%= link_to "Пользователи", users_path %>
 			<% end %>
+
+
+
+			<%= render 'shared/micropost_form' %>
+
+
+
 		<% else %>
 			<%= image_tag(img_title("personal.png")) %>
 			<h3>Гость</h3>
