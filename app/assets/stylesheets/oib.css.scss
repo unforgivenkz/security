@@ -6,13 +6,39 @@
 		    font-weight: normal;
 		    font-family: Arial;
           margin-left: 115px;
+          margin-bottom: 0px;
           
    	}
       img {
          margin-top: 10px;
          margin-left: 20px;
       }
+  input[type="submit"] {
+    border: none;
+    height: 42px;
+    width: 160px;
+    font-size: 14px;
+    color: #f2f2f2;
+    background: url(button.jpg) no-repeat; 
+    cursor: pointer;
+    margin-top: 10px;
+  }
+
+  form {
+    padding-left: 20px;
+    padding-top: 10px;
+    width: 400px;
+  }
 }
+
+.format {
+  width:100%; 
+}
+
+textarea {
+    width: 360px;
+    height: 150px;
+  }
 
 .lenta{
 	width:55%; 
@@ -30,4 +56,8 @@
 .warning {
    margin-top: 80px;
    margin-left: 15px;
+}
+
+.bot {
+   margin-top: 13px;
 }
