@@ -15,11 +15,9 @@
 			<%= image_tag(img_title("personal.png")) if !@current_user.avatar?%>
 			<h3><%= @current_user.name %></h3>
 			<%= link_to "Мой профиль", edit_user_path(current_user) %>
-			<% if @current_user.admin? %>
-				| <%= link_to "Пользователи", users_path %>
-			<% end %>
+			| <%= link_to "Пользователи", users_path %>
 			<% if @current_user.microposts.any? %>
-				<p class = "bot"><%= link_to "Вопросы (#{@current_user.microposts.count})", @current_user %><p>
+				<p class = "bot">Вопросы (<%= @current_user.microposts.count %>)<p>
     		<% end %>
 
 

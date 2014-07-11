@@ -1,12 +1,16 @@
 <% provide(:title, @user.name) %>
-<% provide(:img, @user.avatar_url) if @user.avatar? %>
-<% provide(:img, "personal.png") if !@user.avatar? %>
-<% provide(:h1, @user.name) %>
-
-    <% if @user.microposts.any? %>
-      <h3>Вопросы (<%= @user.microposts.count %>)</h3>
+<% provide(:img, "prof.jpg") %>
+<% provide(:h1, "Вопросы (#{@user.microposts.count})") %>
+<div class = "showus">
+	<%= image_tag(@user.avatar_url) if @user.avatar? %>
+	<%= image_tag(img_title("personal.png")) if !@user.avatar?%>
+	<h3><%= @user.name %></h3>
+</div>
+<div class = "showlen">
+    <% if @user.microposts.any? %>     
       <ol class="microposts">
         <%= render @microposts %>
       </ol>
       <%= will_paginate @microposts %>
-    <% end %>
+    <% end %>  
+</div>    
