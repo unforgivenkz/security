@@ -5,7 +5,7 @@
 	<%= image_tag(@user.avatar_url) if @user.avatar? %>
 	<%= image_tag(img_title("personal.png")) if !@user.avatar?%>
 	<h3><%= @user.name %></h3>
-</div>
+</div>  
 <div class = "showlen">
     <% if @user.microposts.any? %>     
       <ol class="microposts">
@@ -13,4 +13,4 @@
       </ol>
       <%= will_paginate @microposts %>
     <% end %>  
-</div>    
+</div>

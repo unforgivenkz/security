@@ -202,8 +202,6 @@ h2 {
 	padding-right: 40px;
 	padding-bottom: 40px;
 
-	min-height: 300px; 
-
 	img {
     	margin: 0px 15px 0px 0px;
     	float: left;
@@ -311,22 +309,24 @@ aside {
 }
 
 .showus{
-	padding-top: 20px;
-	padding-left: 10px;
+	padding-top: 30px;
+	margin-left: 30px;
 	height: 100px;
-	width: 250px;
-	float: left;
+	width: 40%;
 	   	h3 {
    	    color: #615e5e;
 		font-size: 18px;
 		font-weight: normal;
 		font-family: Arial;
-        padding-top: 10px;  
+        padding-top: 5px;  
    	}
 }
 
 .showlen{
-	width: 650px;
-	float: left;
+	margin-left: 440px;
+	margin-top: -140px;
+	width: 50%;
 	word-wrap: break-word;
+	min-height: 200px;
 }
+
