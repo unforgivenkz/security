@@ -12,6 +12,9 @@
        <% if user.admin? && current_user.admin? %>
       <sup>A</sup>
        <% end %>
+       <% if user.dbzi? && current_user.admin? %>
+      <sup>S</sup>
+       <% end %>
 
       <% if 
       	current_user.admin? && 

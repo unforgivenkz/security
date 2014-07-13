@@ -11,6 +11,7 @@ body {
 	background-color: #588a2b;
 	background-position: left;
 	font-family: arial;
+	word-wrap: break-word;
 }
 
 .menu {
@@ -319,6 +320,7 @@ aside {
 		font-weight: normal;
 		font-family: Arial;
         padding-top: 5px;  
+        line-height: 25px;
    	}
 }
 
@@ -326,7 +328,6 @@ aside {
 	margin-left: 440px;
 	margin-top: -140px;
 	width: 50%;
-	word-wrap: break-word;
 	min-height: 200px;
 }
 

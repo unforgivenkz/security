@@ -13,10 +13,9 @@ class OibController < ApplicationController
 
   def room
     if signed_in?
-      @microposts = current_user.microposts.paginate(page: params[:page], :per_page => 30)
+      @micropost  = current_user.microposts.build
+      @feed_items = current_user.feed.paginate(page: params[:page], :per_page => 30)
     end
-
-    @micropost = current_user.microposts.build if signed_in?
   end
 
 end

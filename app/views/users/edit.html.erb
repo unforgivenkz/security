@@ -11,6 +11,7 @@
         <%= f.text_field :name , disabled:true%> 
 
         <p> <%= f.check_box :admin  %> Администратор? </p>
+        <p> <%= f.check_box :dbzi  %> Работник ДБиЗИ? </p>
       <% else %>
         <%= f.label :name, "Имя" %>
         <%= f.text_field :name %> 

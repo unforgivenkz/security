@@ -84,7 +84,7 @@ class UsersController < ApplicationController
   end
 
   def admin_params_update
-    params.require(:user).permit(:password, :password_confirmation, :admin)
+    params.require(:user).permit(:password, :password_confirmation, :admin, :dbzi)
   end
 
 
