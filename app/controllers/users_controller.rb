@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :signed_in_user, only: [:index, :edit, :update, :destroy]
+  before_action :signed_in_user, only: [:index, :edit, :update, :destroy, :following, :followers]
   before_action :correct_user,   only: [:edit, :update]
   before_action :admin_user,     only: :destroy
 
@@ -58,12 +58,31 @@ class UsersController < ApplicationController
       @up_param = user_params_update
     end  
 
+
+    if !(@user.dbzi == !@up_param[:dbzi].to_i.zero?)
+      flash[:success] = "izmen #{!@up_param[:dbzi].to_i.zero?}"
+      if !@up_param[:dbzi].to_i.zero?
+        users = (@user.blank? ? User.all : User.find(:all, :conditions => ["id != ?", @user.id]))
+        followed_users = users
+        followed_users.each { 
+          |followed| @user.follow!(followed) if !@user.following?(followed)
+        }
+      else
+        followed_users = @user.followed_users
+        followed_users.each { |followed| @user.unfollow!(followed) }
+      end  
+    end  
+
+
     if @user.update_attributes(@up_param)
-      flash[:success] = "Профиль пользователя #{@user.name} успешно изменен."
+ #     flash[:success] = "Профиль пользователя #{@user.name} успешно изменен."
       redirect_to '/room'
     else  
       render 'edit'
     end
+
+
+
 
   end
 
@@ -72,6 +91,23 @@ class UsersController < ApplicationController
     flash[:success] = "Пользователь удален."
     redirect_to users_url
   end
+
+
+
+  def following
+    @title = "Подписки"
+    @user = User.find(params[:id])
+    @users = @user.followed_users.paginate(page: params[:page])
+    render 'show_follow'
+  end
+
+  def followers
+    @title = "Подписчики"
+    @user = User.find(params[:id])
+    @users = @user.followers.paginate(page: params[:page])
+    render 'show_follow'
+  end
+
 
   private
 

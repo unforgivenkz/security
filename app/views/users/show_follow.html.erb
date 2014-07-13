@@ -1,0 +1,32 @@
+<% provide(:title, @user.name) %>
+<% provide(:img, "prof.jpg") %>
+<% provide(:h1, @title) %>
+<div class="row">
+  <aside class="span4">
+    <section>
+      <%= image_tag(@user.avatar.thumb.url) if @user.avatar? %> <!--загруженая картинка, если присутствует-->
+      <%= image_tag(img_title("personalmini.png")) if !@user.avatar?%>
+      <h1><%= @user.name %></h1>
+      <span><%= link_to "view my profile", @user %></span>
+      <span><b>Microposts:</b> <%= @user.microposts.count %></span>
+    </section>
+    <section>
+      <%= render 'shared/stats' %>
+      <% if @users.any? %>
+        <div class="user_avatars">
+          <% @users.each do |user| %>
+            <%= link_to image_tag(user.avatar.thumb.url), user %>
+          <% end %>
+        </div>
+      <% end %>
+    </section>
+  </aside>
+  <div class="span8">
+    <% if @users.any? %>
+      <ul class="users">
+        <%= render @users %>
+      </ul>
+      <%= will_paginate %>
+    <% end %>
+  </div>
+</div>

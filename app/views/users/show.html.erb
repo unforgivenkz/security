@@ -5,8 +5,11 @@
 	<%= image_tag(@user.avatar_url) if @user.avatar? %>
 	<%= image_tag(img_title("personal.png")) if !@user.avatar?%>
 	<h3><%= @user.name %></h3>
+	<%= render 'shared/stats' %>
+
 </div>  
 <div class = "showlen">
+<%= render 'follow_form' if signed_in? %>	
     <% if @user.microposts.any? %>     
       <ol class="microposts">
         <%= render @microposts %>

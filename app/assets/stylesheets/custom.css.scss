@@ -292,7 +292,7 @@ h2 {
 
   li {
     padding: 10px 0;
-    border-top: 1px solid #dadada
+    border-top: 1px solid #dadada;
   }
 }
 
@@ -319,8 +319,8 @@ aside {
 		font-size: 18px;
 		font-weight: normal;
 		font-family: Arial;
-        padding-top: 5px;  
         line-height: 25px;
+        padding-bottom: 30px;
    	}
 }
 
@@ -329,5 +329,28 @@ aside {
 	margin-top: -140px;
 	width: 50%;
 	min-height: 200px;
+}
+
+.stats {
+  margin-left: 20px; 
+  margin-top: 20px;
+  overflow: auto;
+  a {
+    float: left;
+    padding: 0 10px;
+    border-left: 1px solid #dadada;
+    color: gray;
+    &:first-child {
+      padding-left: 0;
+      border: 0;
+    }
+    &:hover {
+      text-decoration: none;
+      color: $blue;
+    }
+  }
+  strong {
+    display: block;
+  }
 }
 
