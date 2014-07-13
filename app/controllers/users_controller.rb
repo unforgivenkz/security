@@ -60,7 +60,6 @@ class UsersController < ApplicationController
 
 
     if !(@user.dbzi == !@up_param[:dbzi].to_i.zero?)
-      flash[:success] = "izmen #{!@up_param[:dbzi].to_i.zero?}"
       if !@up_param[:dbzi].to_i.zero?
         users = (@user.blank? ? User.all : User.find(:all, :conditions => ["id != ?", @user.id]))
         followed_users = users
@@ -75,7 +74,7 @@ class UsersController < ApplicationController
 
 
     if @user.update_attributes(@up_param)
- #     flash[:success] = "Профиль пользователя #{@user.name} успешно изменен."
+      flash[:success] = "Профиль пользователя #{@user.name} успешно изменен."
       redirect_to '/room'
     else  
       render 'edit'

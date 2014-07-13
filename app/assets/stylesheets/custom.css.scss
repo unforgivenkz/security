@@ -320,7 +320,6 @@ aside {
 		font-weight: normal;
 		font-family: Arial;
         line-height: 25px;
-        padding-bottom: 30px;
    	}
 }
 
@@ -352,5 +351,20 @@ aside {
   strong {
     display: block;
   }
+}
+
+
+#follow_form{
+	.follow_b {
+		border: none;
+		height: 42px;
+		width: 160px;
+		font-size: 16px;
+		color: #f2f2f2;
+		background: url(button.jpg) no-repeat; 
+		cursor: pointer;
+		margin-top: 10px;
+		margin-bottom: 20px;
+	}
 }
 
