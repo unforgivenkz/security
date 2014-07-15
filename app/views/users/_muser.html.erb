@@ -1,0 +1,8 @@
+    <% @users.each do |user| %>
+    <li>
+      <%= image_tag(user.avatar.thumb.url) if user.avatar? %>
+      <%= image_tag(img_title("personalmini.png")) if !user.avatar?%>
+      <%= link_to user.name, user %>
+
+    </li>
+<% end %>
