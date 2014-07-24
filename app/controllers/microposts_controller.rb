@@ -5,6 +5,12 @@ class MicropostsController < ApplicationController
   def index
   end
 
+  def show
+    @micropost = Micropost.find(params[:id])
+    @comments = @micropost.comments.paginate(page: params[:page], :per_page => 30)
+    @userpost = @micropost.user
+  end  
+
   def create
     @micropost = current_user.microposts.build(micropost_params)
     if @micropost.save

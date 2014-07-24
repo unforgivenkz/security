@@ -1,0 +1,7 @@
+<%= form_for(@comment) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+  <div class = "format">
+    <%= f.text_area :content, placeholder: "Крик души..." %>
+  </div>
+  <%= f.submit "Опубликовать", class: "btn btn-large btn-primary" %>
+<% end %>

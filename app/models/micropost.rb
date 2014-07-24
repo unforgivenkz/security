@@ -3,6 +3,7 @@ class Micropost < ActiveRecord::Base
 	default_scope -> { order('created_at DESC') }
 	validates :content, presence: true, length: { maximum: 300 }
 	validates :user_id, presence: true
+  has_many :comments, dependent: :destroy
 
   def self.from_users_followed_by(user)
     followed_user_ids = "SELECT followed_id FROM relationships

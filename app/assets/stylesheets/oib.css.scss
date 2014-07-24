@@ -5,7 +5,7 @@
    h3 {
    	    color: #615e5e;
 		    font-size: 18px;
-		    font-weight: normal;
+		    font-weight: bold;
 		    font-family: Arial;
         margin-left: 115px;
         margin-bottom: 0px;
@@ -63,3 +63,32 @@ textarea {
    margin-left: 15px;
 }
 
+.userroomlook{
+   width:100%; 
+   margin-top: 30px;
+      h3 {
+        color: #615e5e;
+        font-size: 20px;
+        font-weight: bold;
+        font-family: Arial;
+        margin-bottom: 40px;
+        padding-top: 30px;
+        line-height: 20px;
+          
+    }
+
+    input[type="submit"] {
+    border: none;
+    height: 42px;
+    width: 160px;
+    font-size: 14px;
+    color: #f2f2f2;
+    background: url(button.jpg) no-repeat; 
+    cursor: pointer;
+    margin-top: 10px;
+  }
+}
+
+.close1 {
+  margin-left: 700px;
+}

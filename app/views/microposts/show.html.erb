@@ -1,0 +1,43 @@
+<div class="b-popup" id="popup1">
+    <div class="b-popup-content">
+    	   <a class="close1" href="/room">Закрыть окно</a></span>
+  
+
+<div class = "userroomlook">
+  <%= image_tag(@userpost.avatar_url) if @userpost.avatar? %>
+  <%= image_tag(img_title("personal.png")) if !@userpost.avatar?%>
+  <h3><%= @userpost.name %></h3>
+	<%= @micropost.content %>
+
+  <% if !current_user?(@userpost) &&  current_user.dbzi? %>
+
+<%= form_for(Comment.new) do |f| %>
+
+  <div class = "format">
+    <%= f.text_area :content, placeholder: "..." %>
+  </div>
+  <%= f.submit "Ответить", class: "btn btn-large btn-primary" %>
+
+<% end %>
+
+<% end %>
+<div class="b-c-popup-content">
+  <ol class="microposts">
+  <% @comments.each do |comment| %>
+  <li>
+    <% comuser = User.find_by_id(comment.user_id) %>
+  <%= image_tag(comuser.avatar.thumb.url) if comuser.avatar? %>
+  <%= image_tag(img_title("personalmini.png")) if !comuser.avatar?%>
+  <b><%= comuser[:name] %></b>
+  <span class="contentmic"><%= comment.content %></span>
+  <span class="timestamp">Posted <%= time_ago_in_words(comment.created_at) %> ago.</span>
+</li>
+<ol class="microposts">
+  <% end %>
+<%= will_paginate @comments %>
+</div>
+</div>
+
+
+    </div>
+</div>
