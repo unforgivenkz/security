@@ -281,6 +281,18 @@ h2 {
 
 .contentmic {
   display: block;
+
+a {    color: black;
+    &:first-child {
+      padding-left: 0;
+      border: 0;
+    }
+    &:hover {
+      text-decoration: none;
+      color: grey;
+    }
+  }
+
 }
 .timestamp {
   color: $grayLight;
@@ -397,3 +409,9 @@ aside {
 	overflow:  scroll;
 	height: 500px;
 }
+
+.imgicon {
+    	float: right;
+    	margin: -7px -10px 0px 0px;
+}
+

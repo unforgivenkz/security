@@ -1,14 +1,13 @@
 class CommentsController < ApplicationController
-  #before_action :dbzi_user, only: [:create, :destroy]
+  before_action :dbzi_user, only: [:create, :destroy]
   
 
 
    def create
     @comment = Comment.new(comment_params)
     @comment.user_id = current_user.id
-    @comment.micropost_id = 22
     if @comment.save
-      flash[:success] = "Comment created!"
+      flash[:success] = "Коментарий успешно добавлен!"
       redirect_to '/room'
     else
       render 'oib/home'
@@ -17,6 +16,12 @@ class CommentsController < ApplicationController
 
 
   def destroy
+    @comment = Comment.find(params[:id])
+    if @comment.present?
+      @comment.destroy
+    end
+    flash[:success] = "Коментарий удален!"
+    redirect_to '/room'
   end
 
 
@@ -27,7 +32,7 @@ private
   end
 
   def comment_params
-    params.require(:comment).permit(:content)
+    params.require(:comment).permit(:content, :micropost_id)
   end
 
 end
