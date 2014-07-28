@@ -2,7 +2,19 @@
 <% provide(:h1, "Все пользователи") %>
 <% provide(:img, "reg.jpg") %>
 
+
+
 <%= will_paginate %>
+
+
+
+<%= form_tag users_path, :method => 'get' do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Найти", :name => nil %>
+  </p>
+<% end %>
+
 
 <ul class="users">
     <%= render @users %>

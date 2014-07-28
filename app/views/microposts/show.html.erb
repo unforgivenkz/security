@@ -1,15 +1,50 @@
 <div class="b-popup" id="popup1">
     <div class="b-popup-content">
-    	   <a class="close1" href="/room">Закрыть окно</a></span>
-  
+         <span class = "imgicon"><%= link_to_function image_tag(img_title("close.jpg")), "history.back()" %></span>
 
 <div class = "userroomlook">
   <%= image_tag(@userpost.avatar_url) if @userpost.avatar? %>
   <%= image_tag(img_title("personal.png")) if !@userpost.avatar?%>
   <h3><%= @userpost.name %></h3>
-	<%= @micropost.content %>
+	<div class = "micropostcontent"><%= @micropost.content %></div>
 
-  <% if !current_user?(@userpost) &&  current_user.dbzi? %>
+<div class="b-c-popup-content">
+  <ol class="microposts">
+  <% @comments.each do |comment| %>
+  <li>
+    <% comuser = User.find_by_id(comment.user_id) %>
+
+
+<% if current_user.dbzi? &&  current_user.id == comuser.id %>
+ 
+
+         <span class = "imgicon"><%= link_to image_tag(img_title("close.png"), :title => "Удалить") , comment, method: :delete,
+                                     data: { confirm: "Вы уверены?" },
+                                     title: comment.content %></span>                                                               
+  <% end %>
+
+
+
+  <%= image_tag(comuser.avatar.thumb.url) if comuser.avatar? %>
+  <%= image_tag(img_title("personalmini.png")) if !comuser.avatar?%>
+  <b><%= comuser[:name] %></b>
+  <span class="contentmic"><%= comment.content %></span>
+  <span class="timestamp">Posted <%= time_ago_in_words(comment.created_at) %> ago.</span>
+
+
+
+
+
+</li>
+<ol class="microposts">
+  <% end %>
+<%= will_paginate @comments %>
+</div>
+
+
+
+
+<% if !current_user?(@userpost) &&  current_user.dbzi? %>
 
 <%= form_for(Comment.new) do |f| %>
 
@@ -22,32 +57,10 @@
 <% end %>
 
 <% end %>
-<div class="b-c-popup-content">
-  <ol class="microposts">
-  <% @comments.each do |comment| %>
-  <li>
-    <% comuser = User.find_by_id(comment.user_id) %>
-  <%= image_tag(comuser.avatar.thumb.url) if comuser.avatar? %>
-  <%= image_tag(img_title("personalmini.png")) if !comuser.avatar?%>
-  <b><%= comuser[:name] %></b>
-  <span class="contentmic"><%= comment.content %></span>
-  <span class="timestamp">Posted <%= time_ago_in_words(comment.created_at) %> ago.</span>
 
 
-<% if current_user.dbzi? &&  current_user.id == comuser.id %>
-   | <%= link_to "Удалить", comment, method: :delete,
-                                     data: { confirm: "Вы уверены?" },
-                                     title: comment.content %>                               
-  <% end %>
 
 
-</li>
-<ol class="microposts">
-  <% end %>
-<%= will_paginate @comments %>
 </div>
-</div>
-
-
     </div>
 </div>

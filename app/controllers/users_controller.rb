@@ -4,8 +4,9 @@ class UsersController < ApplicationController
   before_action :admin_user,     only: :destroy
 
   def index
-    @users = User.paginate(page: params[:page], :per_page => 30)
+    @users = User.where('name LIKE ?', "%#{params[:search]}%").paginate(page: params[:page], :per_page => 30)
   end
+
 
   def show
     @user = User.find(params[:id])
@@ -59,7 +60,7 @@ class UsersController < ApplicationController
     end  
 
 
-    if !(@user.dbzi == !@up_param[:dbzi].to_i.zero?)
+    if !(@user.dbzi == !@up_param[:dbzi].to_i.zero?) && !(@user.id == current_user.id)
       if !@up_param[:dbzi].to_i.zero?
         users = (@user.blank? ? User.all : User.find(:all, :conditions => ["id != ?", @user.id]))
         followed_users = users
