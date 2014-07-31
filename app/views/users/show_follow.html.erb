@@ -5,8 +5,8 @@
       <%= image_tag(@user.avatar_url) if @user.avatar? %> <!--загруженая картинка, если присутствует-->
       <%= image_tag(img_title("personal.png")) if !@user.avatar?%>
       <h3><%= @user.name %></h3>
-      <%= link_to "Вопросы: #{@user.microposts.count}", @user %>
-      <%= render 'shared/stats' %>
+      <p class = "bot"><%= link_to "Вопросы: #{@user.microposts.count}", @user %></p>
+      <div class="stats"><%= render 'shared/stats' %></div>
       <% if @users.any? %>
         <div class="user_avatars">
           <% @users.each do |user| %>

@@ -1,3 +1,10 @@
+<% provide(:title, 'Курилка') %>
+<p><% provide(:img, "room.jpg") %>
+<% provide(:h1, 'Поговорим о наболевшем...') %></p>
+
+
+
+
 <div class="b-popup" id="popup1">
     <div class="b-popup-content">
          <span class = "imgicon"><%= link_to_function image_tag(img_title("close.jpg")), "history.back()" %></span>
@@ -10,6 +17,9 @@
 
 <div class="b-c-popup-content">
   <ol class="microposts">
+
+  <% if @comments.blank? %><p class = "cent">Комментариев нет <br><%= image_tag(img_title("no.jpg")) %></p><%end%>
+
   <% @comments.each do |comment| %>
   <li>
     <% comuser = User.find_by_id(comment.user_id) %>
@@ -34,7 +44,6 @@
 
 
 
-
 </li>
 <ol class="microposts">
   <% end %>
@@ -43,13 +52,12 @@
 
 
 
-
 <% if !current_user?(@userpost) &&  current_user.dbzi? %>
 
 <%= form_for(Comment.new) do |f| %>
 
   <div class = "format">
-    <%= f.text_area :content, placeholder: "Комментарий" %>
+    <%= f.text_area :content%>
     <%= f.hidden_field :micropost_id , value:request.original_url.slice(request.original_url.rindex('/')+1..request.original_url.size).to_i %>
   </div>
   <%= f.submit "Ответить", class: "btn btn-large btn-primary" %>

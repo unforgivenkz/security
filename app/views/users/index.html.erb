@@ -7,14 +7,14 @@
 <%= will_paginate %>
 
 
-
+<div class ="search">
 <%= form_tag users_path, :method => 'get' do %>
   <p>
     <%= text_field_tag :search, params[:search] %>
     <%= submit_tag "Найти", :name => nil %>
   </p>
 <% end %>
-
+</div>
 
 <ul class="users">
     <%= render @users %>
