@@ -6,16 +6,11 @@
     <%= form_for(@user) do |f| %>
       <%= render 'shared/error_messages', object: f.object %>
 
-
-
-<p> <%= f.check_box :admin  %> Администратор? </p>
-      
-
       <% if current_user.admin? && !current_user?(@user) %>
         <%= f.label :name, "Имя" %>
         <%= f.text_field :name , disabled:true%> 
 
-        
+        <p> <%= f.check_box :admin  %> Администратор? </p>
         <p> <%= f.check_box :dbzi  %> Работник ДБиЗИ? </p>
       <% else %>
         <%= f.label :name, "Имя" %>
