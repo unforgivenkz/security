@@ -5,6 +5,7 @@ Security::Application.routes.draw do
     end
   end
   resources :sessions, only: [:new, :create, :destroy]
+  resources :departments
   resources :microposts, only: [:create, :destroy, :show]
   resources :relationships, only: [:create, :destroy]
   resources :comments, only: [:create, :destroy]
@@ -17,6 +18,7 @@ Security::Application.routes.draw do
   match '/structure', to: 'oib#structure', via: 'get'
   match '/help', to: 'oib#help', via: 'get'
   match '/room', to: 'oib#room', via: 'get'
+  match '/depnew',  to: 'departments#new', via: 'get'
   #get "oib/home"
   #get "oib/news"
   #get "oib/structure"

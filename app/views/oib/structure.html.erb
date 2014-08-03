@@ -1,4 +1,138 @@
+<script>
+var show;
+function hidetxt(type){
+ param=document.getElementById(type);
+ if(param.style.display == "none") {
+ if(show) show.style.display = "none";
+ param.style.display = "block";
+ show = param;
+ }else param.style.display = "none"
+}
+</script>
+
 <% provide(:title, 'Структура') %>
 <% provide(:img, "st.jpg") %>
 <% provide(:h1, 'Мы - команда!') %>
+
+<% if signed_in? %>
+	<% if @current_user.admin? %>
+		<p class = "a-right"><%= link_to "Добавить работника", '/depnew' %></p>
+	<%end%>
+<%end%>
+
 <h2>Департамент безопасности и защиты информации</h2>
+
+<table class = "structable">
+	<tr>
+		<td class="colon1">ФИО</td>
+		<td class="colon2">Должность</td>
+		<td class="colon3">Teлефон</td>
+	<% if signed_in? %>
+	<% if @current_user.admin? %>
+		<td>E/D</td>
+	<%end%><%end%>		
+	</tr>	
+</table>	
+<div class = "structdiv">
+
+<p>
+<table class = "structable1">
+<% @department0s.each do |department0| %>
+	<tr>
+	<td class="colon1"><%= department0.name1+" "+department0.name2+" "+department0.name3 %></td>
+	<td class="colon2"><%= department0.post %></td>
+	<td class="colon3"><%= department0.tel %></td>
+	<% if signed_in? %>
+	<% if @current_user.admin? %>
+		<td><%= link_to image_tag(img_title("ok.png")),edit_department_path(department0) %>
+		<%= link_to image_tag(img_title("close.png"), :title => "Удалить"),department0, method: :delete,
+                                     data: { confirm: "Вы уверены?" }%></td>
+
+		<%end%>
+	<%end%>
+	</tr>	
+<%end%>
+</table>
+</p>
+
+<p>
+<a onclick="hidetxt('div1'); return false;" href="#" rel="nofollow"><h4>Отдел информационной безопасности</h4></a>
+<div style="display:none;" id="div1">
+<table class = "structable2">
+<% @department1s.each do |department1| %>
+	<tr>
+	<td class="colon1"><%= department1.name1+" "+department1.name2+" "+department1.name3 %></td>
+	<td class="colon2"><%= department1.post %></td>
+	<td class="colon3"><%= department1.tel %></td>
+	<% if signed_in? %>
+	<% if @current_user.admin? %>
+	<td><%= link_to image_tag(img_title("ok.png")),edit_department_path(department1) %>
+				<%= link_to image_tag(img_title("close.png"), :title => "Удалить"),department1, method: :delete,
+                                     data: { confirm: "Вы уверены?" }%></td>
+			<%end%>
+	<%end%>
+	</tr>	
+<%end%>
+</table>
+</div>
+</p>
+<p>
+<a onclick="hidetxt('div2'); return false;" href="#" rel="nofollow"><h4>Отдел внутренней безопасности</h4></a>
+<div style="display:none;" id="div2">
+<table class = "structable2">
+<% @department2s.each do |department2| %>
+	<tr>
+	<td class="colon1"><%= department2.name1+" "+department2.name2+" "+department2.name3 %></td>
+	<td class="colon2"><%= department2.post %></td>
+	<td class="colon3"><%= department2.tel %></td>
+	<% if signed_in? %>
+	<% if @current_user.admin? %>
+	<td><%= link_to image_tag(img_title("ok.png")),edit_department_path(department2) %>
+				<%= link_to image_tag(img_title("close.png"), :title => "Удалить"),department2, method: :delete,
+                                     data: { confirm: "Вы уверены?" }%></td>
+	<%end%><%end%>
+	</tr>
+<%end%>
+</table>
+</div>
+</p>
+<p>
+<a onclick="hidetxt('div3'); return false;" href="#" rel="nofollow"><h4>Отдел экономической безопасности</h4></a>
+<div style="display:none;" id="div3">	
+<table class = "structable2">
+<% @department3s.each do |department3| %>
+	<tr>
+	<td class="colon1"><%= department3.name1+" "+department3.name2+" "+department3.name3 %></td>
+	<td class="colon2"><%= department3.post %></td>
+	<td class="colon3"><%= department3.tel %></td>
+	<% if signed_in? %>
+	<% if @current_user.admin? %>	
+	<td><%= link_to image_tag(img_title("ok.png")),edit_department_path(department3) %>
+				<%= link_to image_tag(img_title("close.png"), :title => "Удалить"),department3, method: :delete,
+                                     data: { confirm: "Вы уверены?" }%></td>
+	<%end%><%end%>
+	</tr>
+<%end%>
+</table>
+</div>
+</p>
+<p>
+<a onclick="hidetxt('div4'); return false;" href="#" rel="nofollow"><h4>Отдел технической безопасности</h4></a>
+<div style="display:none;" id="div4">
+<table class = "structable2">
+<% @department4s.each do |department4| %>
+	<tr>
+	<td class="colon1"><%= department4.name1+" "+department4.name2+" "+department4.name3 %></td>
+	<td class="colon2"><%= department4.post %></td>
+	<td class="colon3"><%= department4.tel %></td>
+	<% if signed_in? %>
+	<% if @current_user.admin? %>
+	<td><%= link_to image_tag(img_title("ok.png")),edit_department_path(department4) %>
+				<%= link_to image_tag(img_title("close.png"), :title => "Удалить"),department4, method: :delete,
+                                     data: { confirm: "Вы уверены?" }%></td>
+	<%end%><%end%>
+	</tr>	
+<%end%>
+</table>
+</div>
+<p></div>

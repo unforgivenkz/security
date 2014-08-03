@@ -92,3 +92,74 @@ textarea {
 .close1 {
   margin-left: 700px;
 }
+
+.structable {
+border-collapse: separate;
+border-spacing: 5px 10px;
+  text-align: left; 
+  font-weight: bold;
+    .colon1 {
+    width:500px;
+    }
+    .colon2 {
+    width:300px;
+    }
+    .colon3 {
+    width:200px;
+    }
+}
+
+.structable1 {
+  text-align: left; 
+  background: #ecf6de;
+  border: 1px solid #dcdcdc;
+  border-collapse: separate;
+  border-spacing: 5px 10px;
+    .colon1 {
+    width:500px;
+    }
+    .colon2 {
+    font-style: italic;
+    width:300px;
+    }
+    .colon3 {
+    width:200px;
+    }
+}
+
+.structable2 {
+  text-align: left; 
+  background: #e8f5f5;
+  border: 1px solid #dcdcdc;
+  border-collapse: separate;
+  border-spacing: 5px 10px;
+    .colon1 {
+    width:500px;
+    }
+    .colon2 {
+    font-style: italic;
+    width:300px;
+    }
+    .colon3 {
+    width:200px;
+    }
+}
+.structdiv{
+   h4 {
+    font-family: Marker Felt;
+    color: #6da21d;
+    font-size: 24px;
+    font-weight: normal;
+    text-align: left; 
+    }
+   a {
+    color: #6da21d;
+   } 
+   p{
+    padding-top:10px;
+   }
+  }  
+
+  .a-right{
+  text-align: right; 
+  }

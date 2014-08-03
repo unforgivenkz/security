@@ -1,0 +1,52 @@
+<script>
+var show;
+function hidetxt(type){
+ param=document.getElementById(type);
+ if(param.style.display == "none") {
+ if(show) show.style.display = "none";
+ param.style.display = "block";
+ show = param;
+ }else param.style.display = "none"
+}
+</script>
+
+
+<% provide(:title, 'Структура') %>
+<% provide(:img, "st.jpg") %>
+<% provide(:h1, 'У нас пополнение!') %>
+
+ <div class = "signup">
+    <%= form_for(@department)  do |f| %>
+    <%= render 'shared/error_messages', object: f.object %>
+
+      <%= f.label :name1, "Фамилия" %>
+      <%= f.text_field :name1 %>
+
+      <%= f.label :name2, "Имя" %>
+      <%= f.text_field :name2%>
+
+      <%= f.label :name3, "Отчество" %>
+      <%= f.text_field :name3%>
+
+      <%= f.label :post, "Должность" %>
+      <%= f.select(:post, ['Директор', 'Заместитель Директора', 'Начальник', 'Главный специалист', 'Ведущий специалист', 'Специалист']) %>
+
+      <%= f.label :dep, "Отдел" %>
+      <%= f.select(:dep, [0, 1, 2, 3, 4]) %>
+
+<a onclick="hidetxt('div1'); return false;" href="#" rel="nofollow">Подсказка</a>
+<div style="display:none;" id="div1" class = "signupop">
+      0 - Департамент безопасности и защиты информации<br>
+      1 - Отдел информационной безопасности<br>
+      2 - Отдел внутренней безопасности<br>
+      3 - Отдел экономической безопасности<br>
+      4 - Отдел технической безопасности
+</div>
+
+      <br><%= f.label :tel, "Телефон" %>
+      <%= f.text_field :tel %>
+
+
+      <%= f.submit "Добавить" %>
+    <% end %>
+  </div>
