@@ -6,11 +6,11 @@ class OibController < ApplicationController
   end
 
   def structure
-    @department0s = Department.where('dep LIKE ?', 0)
-    @department1s = Department.where('dep LIKE ?', 1)
-    @department2s = Department.where('dep LIKE ?', 2)
-    @department3s = Department.where('dep LIKE ?', 3)
-    @department4s = Department.where('dep LIKE ?', 4)
+    @department0s = Department.where('dep' == 0)
+    @department1s = Department.where('dep' == 1)
+    @department2s = Department.where('dep' == 2)
+    @department3s = Department.where('dep' == 3)
+    @department4s = Department.where('dep'== 4)
 
   end
 
