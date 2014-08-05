@@ -17,6 +17,14 @@ class UsersController < ApplicationController
     end
     if @tok == @user.sign_token
       @user.update_attribute(:active, true)
+
+
+      @userfol = User.where('dbzi = ?', true)
+
+        @userfol.each { 
+          |followed| followed.follow!(@user)
+        }
+
       flash[:success] = "Процедура регистрации завершена."
       redirect_to '/home'
     end
