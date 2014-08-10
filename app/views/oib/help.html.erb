@@ -1,4 +1,45 @@
 <% provide(:title, 'Скорая помощь') %>
 <% provide(:img, "help.jpg") %>
 <% provide(:h1, 'База знаний') %>
-<p>База знаний</p>
+
+<% if signed_in? %>
+	<% if @current_user.admin? %>
+		<p class = "a-right"><%= link_to "Добавить объект", '/helpnew' %></p>
+	<%end%>
+<%end%>
+
+
+
+<ul class="baseblock">
+	<% @knowbases.each do |knowbase| %>
+	<li>
+
+
+
+	<% if @current_user.admin? %>
+				<%= link_to image_tag(img_title("close.png"), :title => "Удалить"),knowbase, method: :delete,
+                                     data: { confirm: "Вы уверены?" }%>
+                <%= link_to image_tag(img_title("ok.png")),edit_knowbasis_path(knowbase) %>                     
+	<%end%>
+
+
+
+		<p class = "f_none">
+
+		<% if knowbase.avatar?	%>
+		<%= link_to image_tag(knowbase.avatar_url), knowbasis_path(knowbase) %> <!--загруженая картинка, если присутствует-->
+		<% else %>
+      	<%= link_to image_tag(img_title("faq.png")), knowbasis_path(knowbase) %>
+      	<% end %>
+
+
+		</p>
+		<p class = "f_none"><%= link_to "#{knowbase.name}", knowbasis_path(knowbase) %></p>
+
+
+	</li>
+	<% end %>
+</ul>
+
+
+

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140803153822) do
+ActiveRecord::Schema.define(version: 20140810105912) do
 
   create_table "comments", force: true do |t|
     t.string   "content"
@@ -33,6 +33,17 @@ ActiveRecord::Schema.define(version: 20140803153822) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "knowbases", force: true do |t|
+    t.string   "name"
+    t.string   "keyword"
+    t.string   "avatar"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "doc"
+  end
+
+  add_index "knowbases", ["keyword"], name: "index_knowbases_on_keyword"
 
   create_table "microposts", force: true do |t|
     t.string   "content"

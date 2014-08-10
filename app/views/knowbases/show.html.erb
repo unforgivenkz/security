@@ -1,0 +1,13 @@
+
+<% provide(:title, 'Скорая помощь') %>
+<% provide(:img, "help.jpg") %>
+<% provide(:h1, @knowbase.name) %>
+
+
+<%File.open(Dir.pwd+'/public'+@knowbase.doc_url, "r" ) do |infile|%>
+<% counter = 1 %>
+<% while (line = infile.gets) %>
+	<%= "#{line}" %>
+	<% counter = counter + 1 %>
+<% end %>
+<% end %>

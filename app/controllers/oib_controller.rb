@@ -15,6 +15,7 @@ class OibController < ApplicationController
   end
 
   def help
+    @knowbases = Knowbase.all
   end
 
   def room

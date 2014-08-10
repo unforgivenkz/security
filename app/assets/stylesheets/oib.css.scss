@@ -154,6 +154,8 @@ border-spacing: 5px 10px;
     }
    a {
     color: #6da21d;
+    border-bottom: 1px dashed;
+    text-decoration: none;
    } 
    p{
     padding-top:10px;
@@ -162,4 +164,33 @@ border-spacing: 5px 10px;
 
   .a-right{
   text-align: right; 
+  }
+
+
+  .baseblock {
+    overflow: auto;
+    margin-left: 20px;
+    li {
+    list-style-type: none;
+      height: 250px;
+      width:300px;
+      float:left;
+    border: 1px solid #f2f2f2;
+    text-align: center;
+    a {
+      display: block;
+      text-decoration: none;
+      }
+    }
+
+    li:hover {
+      border: 1px solid #dcdcdc;
+      background: #ecf6de;
+    }
+
+    .f_none{
+    img{
+      float:none;
+    }
+    }
   }

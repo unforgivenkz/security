@@ -1,0 +1,28 @@
+
+<% provide(:title, 'Скорая помощь') %>
+<% provide(:img, "help.jpg") %>
+<% provide(:h1, 'База знаний') %>
+
+ <div class = "signup">
+    <%= form_for(@knowbase)  do |f| %>
+    <%= render 'shared/error_messages', object: f.object %>
+
+      <%= f.label :name, "Заголовок" %>
+      <%= f.text_field :name %>
+
+      <%= f.label :keyword, "Ключевые слова" %>
+      <%= f.text_field :keyword%>
+
+      <%= f.label  "Иконка" %>
+      <%= image_tag(@knowbase.avatar_url) if @knowbase.avatar? %> <!--загруженая картинка, если присутствует-->
+      <%= image_tag(img_title("faq.png")) if !@knowbase.avatar?%>
+      <%= f.file_field :avatar %>
+      <%= f.hidden_field :avatar_cache %> <!--кешированое изображение-->
+
+      <%= f.label  "Статья" %>
+      <%= f.file_field :doc %>
+
+
+      <%= f.submit "Добавить" %>
+    <% end %>
+  </div>
